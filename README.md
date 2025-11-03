@@ -39,6 +39,9 @@ Failure risk is derived using weighted combinations of load, temperature, and fa
 ###  How to Regenerate
 Run the dataset generator:
 
+📊 [View the Synthetic Grid Dataset](./synthetic_grid_dataset.csv)
+
+
 ```bash
 python generate_dataset.py
 
