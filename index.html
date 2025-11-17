@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnerSynapse | Smart Energy Predictor</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="hero">
+        <div class="nav">
+            <h2 class="logo">Ener<span>Synapse</span></h2>
+        </div>
+
+        <div class="container">
+            <h1 class="title">⚡ Smart Energy Output Predictor</h1>
+            <p class="subtitle">
+                Enter your grid parameters and let AI predict the expected energy output.
+            </p>
+
+            <form action="/predict" method="POST" class="form">
+
+                <div class="input-group">
+                    <label>Voltage (V)</label>
+                    <input type="number" step="0.01" name="Voltage" required />
+                </div>
+
+                <div class="input-group">
+                    <label>Current (A)</label>
+                    <input type="number" step="0.01" name="Current" required />
+                </div>
+
+                <div class="input-group">
+                    <label>Power Factor</label>
+                    <input type="number" step="0.01" name="Power_Factor" required />
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Hour</label>
+                        <input type="number" name="hour" min="0" max="23" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Day</label>
+                        <input type="number" name="day" min="1" max="31" required />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Month</label>
+                        <input type="number" name="month" min="1" max="12" required />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Predict Energy</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
