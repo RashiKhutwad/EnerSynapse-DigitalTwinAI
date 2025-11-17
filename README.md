@@ -1,47 +1,112 @@
-##  Synthetic Grid Dataset — EnerSynapse Project
 
-The **Synthetic Grid Dataset** is a Python-generated simulation of a smart energy grid designed for AI-based prediction, optimization, and digital-twin modeling.  
-It represents realistic operational data from interconnected grid nodes over time — including voltage, current, load, temperature, and probabilistic failures.
+---
 
-###  Purpose
-This dataset powers the **EnerSynapse** AI model — a self-learning digital twin that predicts grid faults, optimizes load distribution, and improves reliability across an energy network.  
-It was created to mimic real-world energy behavior without relying on private or restricted industrial data.
+# **README – EnerSynapse: Smart Energy Output Prediction System**
 
-###  Dataset Overview
-| Column | Description |
-|:--|:--|
-| **Timestamp** | 5-minute interval timestamps starting from 01-Jan-2025 |
-| **Node_ID** | Unique identifier for each grid node (N001–N050) |
-| **Voltage_V** | Electrical voltage at node (fluctuates around 230 V) |
-| **Current_A** | Current drawn at that node, influenced by load |
-| **Load_kW** | Active load in kilowatts |
-| **Temperature_C** | Node-level temperature affected by load and time |
-| **Power_Factor** | Efficiency ratio (0.85 – 1.0 range) |
-| **Energy_Output_kWh** | Energy generated or transmitted within each interval |
-| **Fault** | Binary indicator (1 = fault event, 0 = normal) |
-| **Failure_Risk** | Calculated probability (0 – 1) of system failure |
+## **Project Overview**
 
-**Rows:** 10 000  
-**Nodes simulated:** 50  
-**Sampling interval:** every 5 minutes
+EnerSynapse is a lightweight, AI-powered energy prediction system designed to estimate energy output (kWh) using key electrical and environmental parameters such as Load (kW), Voltage, Current, Temperature, and operational conditions.
+The goal is to help users and organizations understand energy behavior in advance, reduce inefficiency, and support informed decision-making through a simple, accurate, and accessible tool.
 
-###  Generation Logic
-The dataset was generated using NumPy and Pandas.  
-Randomized fluctuations emulate voltage variation, temperature drift, and rare fault occurrences (≈1 % probability).  
-Failure risk is derived using weighted combinations of load, temperature, and fault presence.
+---
 
-###  Example Use Cases
-- **Predictive Maintenance:** Train ML models to forecast transformer or line failures.  
-- **Load Forecasting:** Use time-series models (LSTM, Prophet) to predict grid demand.  
-- **Anomaly Detection:** Detect voltage or current spikes indicating potential faults.  
-- **Reinforcement Learning Simulation:** Test AI load-balancing agents safely.
+## **Problem Statement**
 
-###  How to Regenerate
-Run the dataset generator:
+Modern energy systems generate large amounts of parameter data, but this information is often underutilized.
+Many users lack a simple tool that can:
 
-📊 [View the Synthetic Grid Dataset](./synthetic_grid_dataset.csv)
+* Predict future energy output
+* Help optimize load management
+* Reduce operational inefficiencies
+* Provide insights without complex dashboards
 
+EnerSynapse solves this by offering a lightweight ML-based prediction system accessible through a clean web interface.
 
-```bash
-python generate_dataset.py
+---
 
+## **Project Goal**
+
+The main objective of EnerSynapse is to build a model that:
+
+* Accurately predicts energy output (kWh)
+* Works on a simple dataset
+* Is easy to deploy using a minimal web app
+* Can be used even by non-technical users
+
+---
+
+## **Tools & Technologies Used**
+
+### **Languages & Libraries**
+
+* **Python** → Core development language
+* **Pandas & NumPy** → Data cleaning, preprocessing, feature handling
+* **Scikit-Learn** → Model training, evaluation, scaling
+* **Flask** → Backend server & routing
+* **HTML, CSS, Jinja2** → Web interface
+
+### **Development Environment**
+
+* **VS Code** → Code development & debugging
+
+---
+
+## **Methodology (Step-by-Step)**
+
+1. **Dataset Creation**
+
+   * Generated a synthetic dataset representing load, voltage, current, temperature, and energy output.
+
+2. **Data Preprocessing**
+
+   * Handled missing values
+   * Scaled features using StandardScaler
+   * Extracted relevant columns
+
+3. **Model Development**
+
+   * Tested multiple models
+   * Selected the best-performing algorithm
+   * Saved the model (`model.pkl`) and scaler (`scaler.pkl`)
+
+4. **Backend Integration**
+
+   * Built Flask routes for input and prediction
+   * Integrated the ML model into API endpoints
+
+5. **Frontend UI**
+
+   * Created a simple, clean, responsive HTML-CSS interface
+   * Designed input form + result display page
+
+6. **Final Deployment Structure**
+
+   * Organized templates, static files, model files, and server code
+
+---
+
+## **Project Structure**
+
+```
+enersynapse/
+│_ app.py
+│_ model.pkl
+│_ scaler.pkl
+│_ synthetic_grid_dataset.csv
+│
+│_ templates/
+│     |_ index.html
+│     |_ result.html
+│
+│_ static/
+│     |_ style.css
+│
+│_ README.md
+```
+
+## **Conclusion**
+
+EnerSynapse delivers a clean, simple, and efficient solution for predicting energy output using machine learning.
+The project demonstrates core concepts of data preprocessing, model deployment, and web integration—making it both useful and easy to extend in the future.
+
+---
